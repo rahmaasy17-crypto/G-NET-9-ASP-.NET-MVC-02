@@ -6,7 +6,7 @@ namespace GymManagement.Configuration
 {
     public class PlanConfigurations : IEntityTypeConfiguration<Plan>
     {
-        void IEntityTypeConfiguration<Plan>.Configure(EntityTypeBuilder<Plan> builder)
+     public void  Configure(EntityTypeBuilder<Plan> builder)
         {
            builder.Property(b=>b.Name).HasColumnType("varchar").HasMaxLength(50);
             builder.Property(b => b.Description).HasMaxLength(200);
