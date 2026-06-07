@@ -8,13 +8,14 @@ namespace GymManagement.Controllers
 {
     public class PlansController : Controller
     {
-        // private readonly GymDbContext dbContext;
-        //public PlansController() {
-        //dbContext = new GymDbContext();
-        //}
+     
+        private readonly IPlanRepository PlanRepository;
+        public PlansController(IPlanRepository planRepository)
+        {
+            PlanRepository = planRepository;
+        }
         // Index Action >> GET BaseUrL/Plans/Index ==Listing ALL Plans 
         //get all plans data and send it to view
-        private readonly IPlanRepository PlanRepository;
         public async Task<IActionResult> Index(CancellationToken c)
         {
             var plans = await PlanRepository.GetAllPlansAsync(c: c); //no tracking

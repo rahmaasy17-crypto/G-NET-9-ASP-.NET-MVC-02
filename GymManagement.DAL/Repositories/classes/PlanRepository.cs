@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 
 namespace GymManagement.DAL.Repositories.classes
 {
-    internal class PlanRepository : IPlanRepository
+    //LINQ queries > no Code Duplication
+    //Repository Pattern
+    public class PlanRepository : IPlanRepository
     {
         private readonly GymDbContext dbContext;
-        public PlanRepository()
+        public PlanRepository(GymDbContext gymDbContext)
         {
-            dbContext = new GymDbContext();
+            dbContext = gymDbContext;
         }
         public async Task<int> AddAsync(Plan plan, CancellationToken c = default)
         {
